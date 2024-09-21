@@ -1,9 +1,9 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Next.js",
+  name: "Autismo e TDAH",
   description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
+    "Acessibilidade para pessoas neuroatípicas: As divergências do Autismo e TDAH",
   mainNav: [
     {
       title: "Home",
@@ -11,8 +11,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn/ui",
+    github: "https://github.com/matheusht",
     docs: "https://ui.shadcn.com",
   },
 }
