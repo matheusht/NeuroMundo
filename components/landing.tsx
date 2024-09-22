@@ -380,9 +380,8 @@ export default function Component() {
                   ></div>
                   <p className="text-sm text-muted-foreground">
                     Isso simula sensibilidades visuais a padrões e luzes
-                    piscando. Estratégia de enfrentamento: Use iluminação
-                    natural ou lâmpadas de cor quente e minimize padrões no
-                    ambiente.
+                    piscando. Dica: Use iluminação natural ou lâmpadas de cor
+                    quente e minimize padrões no ambiente.
                   </p>
                 </CardContent>
               </Card>
@@ -410,9 +409,8 @@ export default function Component() {
                   </Button>
                   <p className="text-sm text-muted-foreground">
                     Isso simula sensibilidades auditivas ao ruído de fundo.
-                    Estratégia de enfrentamento: Use fones de ouvido com
-                    cancelamento de ruído ou crie zonas silenciosas em espaços
-                    de convivência e trabalho.
+                    Dica: Use fones de ouvido com cancelamento de ruído ou crie
+                    zonas silenciosas em espaços de convivência e trabalho.
                   </p>
                 </CardContent>
               </Card>
@@ -443,8 +441,8 @@ export default function Component() {
                   </div>
                   <p className="text-sm text-muted-foreground">
                     Isso representa sensibilidades táteis a texturas e toques.
-                    Estratégia de enfrentamento: Escolha materiais de vestuário
-                    confortáveis e esteja atento às texturas no ambiente.
+                    Dica: Escolha materiais de vestuário confortáveis e esteja
+                    atento às texturas no ambiente.
                   </p>
                 </CardContent>
               </Card>
