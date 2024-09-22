@@ -12,6 +12,5 @@ export const siteConfig = {
   ],
   links: {
     github: "https://github.com/matheusht",
-    docs: "https://ui.shadcn.com",
   },
 }

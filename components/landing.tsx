@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -14,9 +15,31 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { Slider } from "@/components/ui/slider"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 export default function Component() {
+  const [visualIntensity, setVisualIntensity] = useState(50)
+  const [audioIntensity, setAudioIntensity] = useState(50)
+  const [tactileIntensity, setTactileIntensity] = useState(50)
+
+  const navItems = [
+    { name: "About", description: "Learn about ADHD and Autism" },
+    { name: "Gallery", description: "Visual perspectives on neurodiversity" },
+    {
+      name: "Daily Life",
+      description: "Challenges and strengths in everyday situations",
+    },
+    { name: "Accessibility", description: "Creating inclusive environments" },
+    { name: "Experience", description: "Interactive sensory simulator" },
+  ]
+
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <header className="flex h-14 items-center border-b px-4 lg:px-6">
@@ -41,15 +64,23 @@ export default function Component() {
           </svg>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6">
-          {["About", "Gallery", "Daily Life", "Accessibility"].map((item) => (
-            <Link
-              key={item}
-              className="rounded-md px-2 py-1 text-sm font-medium transition-colors hover:text-primary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-              href={`#${item.toLowerCase().replace(" ", "-")}`}
-            >
-              {item}
-            </Link>
-          ))}
+          <TooltipProvider>
+            {navItems.map((item) => (
+              <Tooltip key={item.name}>
+                <TooltipTrigger asChild>
+                  <Link
+                    className="rounded-md px-2 py-1 text-sm font-medium transition-colors hover:text-primary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                    href={`#${item.name.toLowerCase().replace(" ", "-")}`}
+                  >
+                    {item.name}
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{item.description}</p>
+                </TooltipContent>
+              </Tooltip>
+            ))}
+          </TooltipProvider>
         </nav>
       </header>
       <main className="flex-1">
@@ -235,34 +266,120 @@ export default function Component() {
             </div>
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section
+          id="experience"
+          className="w-full bg-muted py-12 md:py-24 lg:py-32"
+        >
           <div className="container px-4 md:px-6">
             <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
-              Testimonials
+              Interactive Sensory Experience Simulator
             </h2>
+            <p className="mb-8 text-xl text-muted-foreground">
+              Adjust the sliders below to simulate different sensory experiences
+              that individuals with ADHD or Autism might encounter. This
+              interactive tool aims to promote understanding and empathy.
+            </p>
             <div className="grid gap-6 lg:grid-cols-3 lg:gap-12">
-              {[1, 2, 3].map((i) => (
-                <Card key={i}>
-                  <CardContent className="flex flex-col items-center p-6 text-center">
-                    <Avatar className="mb-4 size-20">
-                      <AvatarImage
-                        src={`/placeholder.svg?height=80&width=80`}
-                        alt={`Testimonial ${i}`}
-                      />
-                      <AvatarFallback>T{i}</AvatarFallback>
-                    </Avatar>
-                    <p className="mb-4 text-muted-foreground">
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua."
-                    </p>
-                    <p className="font-semibold text-primary">John Doe {i}</p>
-                    <p className="text-sm text-muted-foreground">
-                      Parent of a child with ADHD
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="mb-4 text-xl font-semibold">
+                    Visual Sensitivity
+                  </h3>
+                  <Slider
+                    value={[visualIntensity]}
+                    onValueChange={(value) => setVisualIntensity(value[0])}
+                    max={100}
+                    step={1}
+                    className="mb-4"
+                  />
+                  <div
+                    className="mb-4 h-40 w-full overflow-hidden rounded-md"
+                    style={{
+                      background: `repeating-linear-gradient(
+                        45deg,
+                        hsl(0, 0%, ${100 - visualIntensity}%),
+                        hsl(0, 0%, ${100 - visualIntensity}%) 10px,
+                        hsl(0, 0%, ${Math.max(
+                          0,
+                          100 - visualIntensity - 10
+                        )}%) 10px,
+                        hsl(0, 0%, ${Math.max(
+                          0,
+                          100 - visualIntensity - 10
+                        )}%) 20px
+                      )`,
+                      animation: `flicker ${101 - visualIntensity}ms infinite`,
+                    }}
+                  ></div>
+                  <p className="text-sm text-muted-foreground">
+                    This simulates visual sensitivities to patterns and
+                    flickering lights. Coping strategy: Use natural lighting or
+                    warm-colored light bulbs, and minimize patterns in the
+                    environment.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="mb-4 text-xl font-semibold">
+                    Auditory Sensitivity
+                  </h3>
+                  <Slider
+                    value={[audioIntensity]}
+                    onValueChange={(value) => setAudioIntensity(value[0])}
+                    max={100}
+                    step={1}
+                    className="mb-4"
+                  />
+                  <Button
+                    onClick={() => {
+                      const audio = new Audio("white-noise.MP3")
+                      audio.volume = audioIntensity / 100
+                      audio.play()
+                    }}
+                    className="mb-4 w-full"
+                  >
+                    Play Sample Sound
+                  </Button>
+                  <p className="text-sm text-muted-foreground">
+                    This simulates auditory sensitivities to background noise.
+                    Coping strategy: Use noise-cancelling headphones or create
+                    quiet zones in living and working spaces.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="mb-4 text-xl font-semibold">
+                    Tactile Sensitivity
+                  </h3>
+                  <Slider
+                    value={[tactileIntensity]}
+                    onValueChange={(value) => setTactileIntensity(value[0])}
+                    max={100}
+                    step={1}
+                    className="mb-4"
+                  />
+                  <div
+                    className="mb-4 flex h-40 w-full items-center justify-center overflow-hidden rounded-md bg-primary/10"
+                    style={{
+                      boxShadow: `inset 0 0 ${tactileIntensity}px 0 rgba(0,0,0,0.5)`,
+                    }}
+                  >
+                    <span
+                      className="select-none text-4xl"
+                      style={{ filter: `blur(${tactileIntensity / 10}px)` }}
+                    >
+                      Touch
+                    </span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    This represents tactile sensitivities to textures and touch.
+                    Coping strategy: Choose comfortable clothing materials and
+                    be mindful of textures in the environment.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
