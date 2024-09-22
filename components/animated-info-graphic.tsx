@@ -61,7 +61,7 @@ export function AnimatedInfoGraphic({
               : `${2 * Math.PI * 90}`
           }
           transform="rotate(-90 100 100)"
-          className="text-primary transition-all duration-1000 ease-out"
+          className="text-primary transition-all duration-1000 ease-out dark:text-background"
         />
         <text
           x="100"

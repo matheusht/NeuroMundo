@@ -16,32 +16,12 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Slider } from "@/components/ui/slider"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
 import { AnimatedInfoGraphic } from "@/components/animated-info-graphic"
 
 export default function Component() {
   const [visualIntensity, setVisualIntensity] = useState(50)
   const [audioIntensity, setAudioIntensity] = useState(50)
   const [tactileIntensity, setTactileIntensity] = useState(50)
-
-  const navItems = [
-    { name: "Sobre", description: "Aprenda sobre TDAH e Autismo" },
-    {
-      name: "Galeria",
-      description: "Perspectivas visuais sobre neurodiversidade",
-    },
-    {
-      name: "Vida Diária",
-      description: "Desafios e pontos fortes em situações cotidianas",
-    },
-    { name: "Acessibilidade", description: "Criando ambientes inclusivos" },
-    { name: "Experiência", description: "Simulador sensorial interativo" },
-  ]
 
   const accessibilityStats = [
     { label: "Indivíduos com deficiência", percentage: 15 },
@@ -118,47 +98,6 @@ export default function Component() {
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
-      <header className="flex h-14 items-center border-b px-4 lg:px-6">
-        <Link className="flex items-center justify-center" href="#">
-          <span className="sr-only">Conscientização sobre Autismo e TDAH</span>
-          <svg
-            className="size-6 text-primary"
-            fill="none"
-            height="24"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
-            <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
-            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
-            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
-          </svg>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <TooltipProvider>
-            {navItems.map((item) => (
-              <Tooltip key={item.name}>
-                <TooltipTrigger asChild>
-                  <Link
-                    className="rounded-md px-2 py-1 text-sm font-medium transition-colors hover:text-primary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-                    href={`#${item.name.toLowerCase().replace(" ", "-")}`}
-                  >
-                    {item.name}
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{item.description}</p>
-                </TooltipContent>
-              </Tooltip>
-            ))}
-          </TooltipProvider>
-        </nav>
-      </header>
       <main className="flex-1">
         <section id="sobre" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
@@ -182,10 +121,16 @@ export default function Component() {
                     </h3>
                     <p className="mb-4 text-muted-foreground">
                       O Transtorno de Déficit de Atenção e Hiperatividade (TDAH)
-                      é um transtorno do neurodesenvolvimento caracterizado por
-                      desatenção, hiperatividade e impulsividade. Afeta tanto
-                      crianças quanto adultos, impactando foco, organização e
-                      autorregulação.
+                      é um transtorno neurológico que afeta milhões de pessoas
+                      em todo o mundo, tanto crianças quanto adultos.
+                      Caracterizado por dificuldades em manter a atenção,
+                      hiperatividade e comportamento impulsivo, o TDAH pode
+                      interferir nas atividades diárias e nas interações
+                      sociais. No entanto, com o diagnóstico adequado e
+                      estratégias de manejo, como a terapia comportamental e, em
+                      alguns casos, medicação, é possível melhorar
+                      significativamente a qualidade de vida dos indivíduos que
+                      convivem com o transtorno.
                     </p>
                     <Badge variant="secondary">Neurodiversidade</Badge>
                   </CardContent>
@@ -199,10 +144,16 @@ export default function Component() {
                     </h3>
                     <p className="mb-4 text-muted-foreground">
                       O Transtorno do Espectro Autista (TEA) é uma condição
-                      complexa de desenvolvimento que envolve desafios na
-                      interação social, comunicação e comportamentos restritos
-                      ou repetitivos. É um espectro, o que significa que afeta
-                      os indivíduos de forma diferente e em vários graus.
+                      complexa do neurodesenvolvimento que envolve desafios em
+                      três áreas principais: interação social, comunicação e
+                      comportamentos restritivos ou repetitivos. O autismo é
+                      chamado de "espectro" porque os sintomas podem variar
+                      muito em tipo e gravidade. Alguns indivíduos apresentam
+                      grandes habilidades em áreas específicas, enquanto outros
+                      podem precisar de mais suporte no dia a dia. Com
+                      intervenções precoces e adequadas, é possível promover
+                      maior independência e qualidade de vida para pessoas
+                      dentro do espectro.
                     </p>
                     <Badge variant="secondary">Espectro</Badge>
                   </CardContent>
@@ -223,27 +174,27 @@ export default function Component() {
               {[
                 {
                   text: "Criança com TDAH concentrando-se em uma tarefa",
-                  image: "/assets/image.png?height=300&width=400",
+                  image: "/assets/TDAH1.jpg?height=300&width=400",
                 },
                 {
                   text: "Adulto com Autismo envolvido em um interesse especial",
-                  image: "/assets/image.png?height=300&width=400",
+                  image: "/assets/autismo1.png?height=300&width=400",
                 },
                 {
                   text: "Símbolos de conscientização sobre TDAH e Autismo",
-                  image: "/assets/image.png?height=300&width=400",
+                  image: "/assets/autismo2.png?height=300&width=400",
                 },
                 {
                   text: "Ambiente sensorialmente amigável para indivíduos com Autismo",
-                  image: "/assets/image.png?height=300&width=400",
+                  image: "/assets/autismo3.png?height=300&width=400",
                 },
                 {
-                  text: "Visualização de estratégias de enfrentamento para TDAH",
-                  image: "/assets/image.png?height=300&width=400",
+                  text: "Ferramentas interativas para melhorar a concentração em crianças com TDAH",
+                  image: "/assets/TDAH2.jpg?height=300&width=400",
                 },
                 {
                   text: "Sala de aula inclusiva para estudantes neurodiversos",
-                  image: "/assets/image.png?height=300&width=400",
+                  image: "/assets/neuro1.jpg?height=300&width=400",
                 },
               ].map((caption, index) => (
                 <Card
@@ -503,21 +454,15 @@ export default function Component() {
       </main>
       <footer className="flex w-full shrink-0 flex-col items-center gap-2 border-t px-4 py-6 sm:flex-row md:px-6">
         <p className="text-xs text-muted-foreground">
-          © 2024 Conscientização sobre Autismo e TDAH. Todos os direitos
-          reservados.
+          © 2024 NeuroMundo. Todos os direitos reservados.
         </p>
         <nav className="flex gap-4 sm:ml-auto sm:gap-6">
           <Link
             className="text-xs transition-colors hover:text-primary"
-            href="#"
+            target="_blank"
+            href="https://espacocinthiafranca.com.br/diferencas-entre-autismo-e-tdah/"
           >
-            Termos de Serviço
-          </Link>
-          <Link
-            className="text-xs transition-colors hover:text-primary"
-            href="#"
-          >
-            Privacidade
+            Saiba mais
           </Link>
         </nav>
       </footer>
