@@ -30,83 +30,87 @@ export default function Component() {
   const [tactileIntensity, setTactileIntensity] = useState(50)
 
   const navItems = [
-    { name: "About", description: "Learn about ADHD and Autism" },
-    { name: "Gallery", description: "Visual perspectives on neurodiversity" },
+    { name: "Sobre", description: "Aprenda sobre TDAH e Autismo" },
     {
-      name: "Daily Life",
-      description: "Challenges and strengths in everyday situations",
+      name: "Galeria",
+      description: "Perspectivas visuais sobre neurodiversidade",
     },
-    { name: "Accessibility", description: "Creating inclusive environments" },
-    { name: "Experience", description: "Interactive sensory simulator" },
+    {
+      name: "Vida Diária",
+      description: "Desafios e pontos fortes em situações cotidianas",
+    },
+    { name: "Acessibilidade", description: "Criando ambientes inclusivos" },
+    { name: "Experiência", description: "Simulador sensorial interativo" },
   ]
 
   const accessibilityStats = [
-    { label: "Individuals with disabilities", percentage: 15 },
-    { label: "Websites that are fully accessible", percentage: 2 },
+    { label: "Indivíduos com deficiência", percentage: 15 },
+    { label: "Sites totalmente acessíveis", percentage: 2 },
     {
-      label: "Increase in user engagement with accessible design",
+      label: "Aumento no engajamento dos usuários com design acessível",
       percentage: 40,
     },
   ]
 
   const dailyLifeSchedule = [
     {
-      time: "Morning",
+      time: "Manhã",
       activities: [
         {
-          name: "Waking up",
-          challenge: "Difficulty transitioning from sleep to wakefulness",
-          strength: "May have creative ideas upon waking",
+          name: "Acordar",
+          challenge: "Dificuldade em fazer a transição do sono para a vigília",
+          strength: "Pode ter ideias criativas ao acordar",
         },
         {
-          name: "Getting ready",
-          challenge: "Executive function challenges in sequencing tasks",
-          strength: "Can develop unique and efficient routines",
+          name: "Preparar-se",
+          challenge: "Desafios na função executiva ao sequenciar tarefas",
+          strength: "Pode desenvolver rotinas únicas e eficientes",
         },
         {
-          name: "Commute",
-          challenge: "Sensory overload in busy environments",
-          strength: "Ability to notice details others might miss",
+          name: "Deslocamento",
+          challenge: "Sobrecarga sensorial em ambientes movimentados",
+          strength: "Capacidade de notar detalhes que outros podem ignorar",
         },
       ],
     },
     {
-      time: "Afternoon",
+      time: "Tarde",
       activities: [
         {
-          name: "Work/School",
-          challenge: "Maintaining focus on non-preferred tasks",
-          strength: "Hyperfocus on interesting subjects",
+          name: "Trabalho/Escola",
+          challenge: "Manter o foco em tarefas não preferidas",
+          strength: "Hiperfoco em assuntos interessantes",
         },
         {
-          name: "Lunch break",
-          challenge: "Social interactions may be overwhelming",
-          strength: "Enjoying solitary activities or deep conversations",
+          name: "Intervalo para almoço",
+          challenge: "Interações sociais podem ser desgastantes",
+          strength: "Aprecia atividades solitárias ou conversas profundas",
         },
         {
-          name: "Meetings",
-          challenge: "Processing multiple voices and information",
-          strength: "Offering unique perspectives and creative solutions",
+          name: "Reuniões",
+          challenge: "Processar várias vozes e informações",
+          strength: "Oferece perspectivas únicas e soluções criativas",
         },
       ],
     },
     {
-      time: "Evening",
+      time: "Noite",
       activities: [
         {
-          name: "Home tasks",
-          challenge: "Initiating and completing chores",
-          strength: "Bursts of energy for preferred activities",
+          name: "Tarefas domésticas",
+          challenge: "Iniciar e concluir afazeres",
+          strength: "Explosões de energia para atividades preferidas",
         },
         {
-          name: "Leisure time",
-          challenge: "Difficulty in transitioning between activities",
-          strength: "Intense engagement in hobbies or interests",
+          name: "Tempo livre",
+          challenge: "Dificuldade em transitar entre atividades",
+          strength: "Envolvimento intenso em hobbies ou interesses",
         },
         {
-          name: "Bedtime routine",
-          challenge: "Racing thoughts may delay sleep",
-          strength: "Reflection and problem-solving during quiet time",
+          name: "Rotina de dormir",
+          challenge: "Pensamentos acelerados podem atrasar o sono",
+          strength:
+            "Reflexão e resolução de problemas durante o tempo de silêncio",
         },
       ],
     },
@@ -116,7 +120,7 @@ export default function Component() {
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <header className="flex h-14 items-center border-b px-4 lg:px-6">
         <Link className="flex items-center justify-center" href="#">
-          <span className="sr-only">Autism and ADHD Awareness</span>
+          <span className="sr-only">Conscientização sobre Autismo e TDAH</span>
           <svg
             className="size-6 text-primary"
             fill="none"
@@ -156,51 +160,51 @@ export default function Component() {
         </nav>
       </header>
       <main className="flex-1">
-        <section id="about" className="w-full py-12 md:py-24 lg:py-32">
+        <section id="sobre" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
-              Understanding ADHD and Autism
+              Compreendendo o TDAH e o Autismo
             </h2>
             <Tabs defaultValue="adhd" className="w-full">
               <TabsList className="mb-4 grid w-full grid-cols-2">
                 <TabsTrigger value="adhd" className="text-lg font-semibold">
-                  ADHD
+                  TDAH
                 </TabsTrigger>
-                <TabsTrigger value="autism" className="text-lg font-semibold">
-                  Autism
+                <TabsTrigger value="autismo" className="text-lg font-semibold">
+                  Autismo
                 </TabsTrigger>
               </TabsList>
               <TabsContent value="adhd">
                 <Card>
                   <CardContent className="p-6">
                     <h3 className="mb-4 text-2xl font-bold text-primary">
-                      ADHD
+                      TDAH
                     </h3>
                     <p className="mb-4 text-muted-foreground">
-                      Attention Deficit Hyperactivity Disorder (ADHD) is a
-                      neurodevelopmental disorder characterized by inattention,
-                      hyperactivity, and impulsivity. It affects both children
-                      and adults, impacting focus, organization, and
-                      self-regulation.
+                      O Transtorno de Déficit de Atenção e Hiperatividade (TDAH)
+                      é um transtorno do neurodesenvolvimento caracterizado por
+                      desatenção, hiperatividade e impulsividade. Afeta tanto
+                      crianças quanto adultos, impactando foco, organização e
+                      autorregulação.
                     </p>
-                    <Badge variant="secondary">Neurodiversity</Badge>
+                    <Badge variant="secondary">Neurodiversidade</Badge>
                   </CardContent>
                 </Card>
               </TabsContent>
-              <TabsContent value="autism">
+              <TabsContent value="autismo">
                 <Card>
                   <CardContent className="p-6">
                     <h3 className="mb-4 text-2xl font-bold text-primary">
-                      Autism
+                      Autismo
                     </h3>
                     <p className="mb-4 text-muted-foreground">
-                      Autism Spectrum Disorder (ASD) is a complex developmental
-                      condition involving challenges with social interaction,
-                      communication, and restricted or repetitive behaviors.
-                      It's a spectrum, meaning it affects individuals
-                      differently and to varying degrees.
+                      O Transtorno do Espectro Autista (TEA) é uma condição
+                      complexa de desenvolvimento que envolve desafios na
+                      interação social, comunicação e comportamentos restritos
+                      ou repetitivos. É um espectro, o que significa que afeta
+                      os indivíduos de forma diferente e em vários graus.
                     </p>
-                    <Badge variant="secondary">Spectrum</Badge>
+                    <Badge variant="secondary">Espectro</Badge>
                   </CardContent>
                 </Card>
               </TabsContent>
@@ -208,21 +212,39 @@ export default function Component() {
           </div>
         </section>
         <section
-          id="gallery"
+          id="galeria"
           className="w-full bg-muted py-12 md:py-24 lg:py-32"
         >
           <div className="container px-4 md:px-6">
             <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
-              Visual Perspectives
+              Perspectivas Visuais
             </h2>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {[
-                "Child with ADHD focusing on a task",
-                "Adult with Autism engaging in a special interest",
-                "ADHD and Autism awareness symbols",
-                "Sensory-friendly environment for individuals with Autism",
-                "ADHD coping strategies visualization",
-                "Inclusive classroom setting for neurodiverse students",
+                {
+                  text: "Criança com TDAH concentrando-se em uma tarefa",
+                  image: "/assets/image.png?height=300&width=400",
+                },
+                {
+                  text: "Adulto com Autismo envolvido em um interesse especial",
+                  image: "/assets/image.png?height=300&width=400",
+                },
+                {
+                  text: "Símbolos de conscientização sobre TDAH e Autismo",
+                  image: "/assets/image.png?height=300&width=400",
+                },
+                {
+                  text: "Ambiente sensorialmente amigável para indivíduos com Autismo",
+                  image: "/assets/image.png?height=300&width=400",
+                },
+                {
+                  text: "Visualização de estratégias de enfrentamento para TDAH",
+                  image: "/assets/image.png?height=300&width=400",
+                },
+                {
+                  text: "Sala de aula inclusiva para estudantes neurodiversos",
+                  image: "/assets/image.png?height=300&width=400",
+                },
               ].map((caption, index) => (
                 <Card
                   key={index}
@@ -230,28 +252,30 @@ export default function Component() {
                 >
                   <CardContent className="p-4">
                     <Image
-                      alt={caption}
+                      alt={caption.text}
                       className="mb-4 aspect-video rounded-lg object-cover"
                       height="300"
-                      src={`/placeholder.svg?height=300&width=400`}
+                      src={caption.image}
                       width="400"
                     />
-                    <p className="text-sm text-muted-foreground">{caption}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {caption.text}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
             </div>
           </div>
         </section>
-        <section id="daily-life" className="w-full py-12 md:py-24 lg:py-32">
+        <section id="vida-diária" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
-              ADHD and Autism in Daily Life
+              TDAH e Autismo na Vida Diária
             </h2>
             <p className="mb-8 text-xl text-muted-foreground">
-              Experience a day in the life of individuals with ADHD and Autism.
-              Explore the unique challenges and strengths that come with
-              neurodiversity in everyday situations.
+              Experimente um dia na vida de indivíduos com TDAH e Autismo.
+              Explore os desafios únicos e os pontos fortes que vêm com a
+              neurodiversidade em situações cotidianas.
             </p>
             <Accordion type="single" collapsible className="w-full">
               {dailyLifeSchedule.map((timeBlock, index) => (
@@ -270,7 +294,7 @@ export default function Component() {
                             <div className="grid gap-2">
                               <div>
                                 <span className="font-medium text-primary">
-                                  Challenge:{" "}
+                                  Desafio:{" "}
                                 </span>
                                 <span className="text-muted-foreground">
                                   {activity.challenge}
@@ -278,7 +302,7 @@ export default function Component() {
                               </div>
                               <div>
                                 <span className="font-medium text-primary">
-                                  Strength:{" "}
+                                  Ponto forte:{" "}
                                 </span>
                                 <span className="text-muted-foreground">
                                   {activity.strength}
@@ -296,12 +320,12 @@ export default function Component() {
           </div>
         </section>
         <section
-          id="accessibility"
+          id="acessibilidade"
           className="w-full bg-muted py-12 md:py-24 lg:py-32"
         >
           <div className="container px-4 md:px-6">
             <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
-              Accessibility for ADHD and Autism
+              Acessibilidade para TDAH e Autismo
             </h2>
 
             <div className="mb-12 grid gap-8 md:grid-cols-3">
@@ -317,30 +341,30 @@ export default function Component() {
             <div className="grid gap-6 lg:grid-cols-3 lg:gap-12">
               {[
                 {
-                  title: "Environmental Adaptations",
+                  title: "Adaptações Ambientais",
                   items: [
-                    "Quiet spaces for focus and sensory breaks",
-                    "Adjustable lighting and sound levels",
-                    "Clear signage and visual schedules",
-                    "Fidget tools and comfort items",
+                    "Espaços silenciosos para foco e pausas sensoriais",
+                    "Iluminação e níveis de som ajustáveis",
+                    "Sinalização clara e horários visuais",
+                    "Ferramentas de inquietação e itens de conforto",
                   ],
                 },
                 {
-                  title: "Communication Support",
+                  title: "Suporte à Comunicação",
                   items: [
-                    "Alternative and augmentative communication (AAC) devices",
-                    "Visual aids and social stories",
-                    "Clear, concise instructions",
-                    "Patience and understanding in interactions",
+                    "Dispositivos de comunicação alternativa e aumentativa (CAA)",
+                    "Ajudas visuais e histórias sociais",
+                    "Instruções claras e concisas",
+                    "Paciência e compreensão nas interações",
                   ],
                 },
                 {
-                  title: "Inclusive Practices",
+                  title: "Práticas Inclusivas",
                   items: [
-                    "Flexible deadlines and work arrangements",
-                    "Structured routines with built-in breaks",
-                    "Assistive technology and organizational tools",
-                    "Neurodiversity training for peers and colleagues",
+                    "Prazos flexíveis e arranjos de trabalho",
+                    "Rotinas estruturadas com intervalos incorporados",
+                    "Tecnologia assistiva e ferramentas organizacionais",
+                    "Treinamento sobre neurodiversidade para colegas",
                   ],
                 },
               ].map((category, index) => (
@@ -360,21 +384,22 @@ export default function Component() {
             </div>
           </div>
         </section>
-        <section id="experience" className="w-full py-12 md:py-24 lg:py-32">
+        <section id="experiência" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
-              Interactive Sensory Experience Simulator
+              Simulador Interativo de Experiência Sensorial
             </h2>
             <p className="mb-8 text-xl text-muted-foreground">
-              Adjust the sliders below to simulate different sensory experiences
-              that individuals with ADHD or Autism might encounter. This
-              interactive tool aims to promote understanding and empathy.
+              Ajuste os controles deslizantes abaixo para simular diferentes
+              experiências sensoriais que indivíduos com TDAH ou Autismo podem
+              enfrentar. Esta ferramenta interativa visa promover compreensão e
+              empatia.
             </p>
             <div className="grid gap-6 lg:grid-cols-3 lg:gap-12">
               <Card>
                 <CardContent className="p-6">
                   <h3 className="mb-4 text-xl font-semibold">
-                    Visual Sensitivity
+                    Sensibilidade Visual
                   </h3>
                   <Slider
                     value={[visualIntensity]}
@@ -403,17 +428,17 @@ export default function Component() {
                     }}
                   ></div>
                   <p className="text-sm text-muted-foreground">
-                    This simulates visual sensitivities to patterns and
-                    flickering lights. Coping strategy: Use natural lighting or
-                    warm-colored light bulbs, and minimize patterns in the
-                    environment.
+                    Isso simula sensibilidades visuais a padrões e luzes
+                    piscando. Estratégia de enfrentamento: Use iluminação
+                    natural ou lâmpadas de cor quente e minimize padrões no
+                    ambiente.
                   </p>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="p-6">
                   <h3 className="mb-4 text-xl font-semibold">
-                    Auditory Sensitivity
+                    Sensibilidade Auditiva
                   </h3>
                   <Slider
                     value={[audioIntensity]}
@@ -424,25 +449,26 @@ export default function Component() {
                   />
                   <Button
                     onClick={() => {
-                      const audio = new Audio("/white-noise.mp3")
+                      const audio = new Audio("/audio/white-noise.MP3")
                       audio.volume = audioIntensity / 100
                       audio.play()
                     }}
                     className="mb-4 w-full"
                   >
-                    Play Sample Sound
+                    Reproduzir Som de Exemplo
                   </Button>
                   <p className="text-sm text-muted-foreground">
-                    This simulates auditory sensitivities to background noise.
-                    Coping strategy: Use noise-cancelling headphones or create
-                    quiet zones in living and working spaces.
+                    Isso simula sensibilidades auditivas ao ruído de fundo.
+                    Estratégia de enfrentamento: Use fones de ouvido com
+                    cancelamento de ruído ou crie zonas silenciosas em espaços
+                    de convivência e trabalho.
                   </p>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="p-6">
                   <h3 className="mb-4 text-xl font-semibold">
-                    Tactile Sensitivity
+                    Sensibilidade Tátil
                   </h3>
                   <Slider
                     value={[tactileIntensity]}
@@ -461,13 +487,13 @@ export default function Component() {
                       className="select-none text-4xl"
                       style={{ filter: `blur(${tactileIntensity / 10}px)` }}
                     >
-                      Touch
+                      Toque
                     </span>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    This represents tactile sensitivities to textures and touch.
-                    Coping strategy: Choose comfortable clothing materials and
-                    be mindful of textures in the environment.
+                    Isso representa sensibilidades táteis a texturas e toques.
+                    Estratégia de enfrentamento: Escolha materiais de vestuário
+                    confortáveis e esteja atento às texturas no ambiente.
                   </p>
                 </CardContent>
               </Card>
@@ -477,20 +503,21 @@ export default function Component() {
       </main>
       <footer className="flex w-full shrink-0 flex-col items-center gap-2 border-t px-4 py-6 sm:flex-row md:px-6">
         <p className="text-xs text-muted-foreground">
-          © 2024 Autism and ADHD Awareness. All rights reserved.
+          © 2024 Conscientização sobre Autismo e TDAH. Todos os direitos
+          reservados.
         </p>
         <nav className="flex gap-4 sm:ml-auto sm:gap-6">
           <Link
             className="text-xs transition-colors hover:text-primary"
             href="#"
           >
-            Terms of Service
+            Termos de Serviço
           </Link>
           <Link
             className="text-xs transition-colors hover:text-primary"
             href="#"
           >
-            Privacy
+            Privacidade
           </Link>
         </nav>
       </footer>
