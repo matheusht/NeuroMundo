@@ -49,6 +49,69 @@ export default function Component() {
     },
   ]
 
+  const dailyLifeSchedule = [
+    {
+      time: "Morning",
+      activities: [
+        {
+          name: "Waking up",
+          challenge: "Difficulty transitioning from sleep to wakefulness",
+          strength: "May have creative ideas upon waking",
+        },
+        {
+          name: "Getting ready",
+          challenge: "Executive function challenges in sequencing tasks",
+          strength: "Can develop unique and efficient routines",
+        },
+        {
+          name: "Commute",
+          challenge: "Sensory overload in busy environments",
+          strength: "Ability to notice details others might miss",
+        },
+      ],
+    },
+    {
+      time: "Afternoon",
+      activities: [
+        {
+          name: "Work/School",
+          challenge: "Maintaining focus on non-preferred tasks",
+          strength: "Hyperfocus on interesting subjects",
+        },
+        {
+          name: "Lunch break",
+          challenge: "Social interactions may be overwhelming",
+          strength: "Enjoying solitary activities or deep conversations",
+        },
+        {
+          name: "Meetings",
+          challenge: "Processing multiple voices and information",
+          strength: "Offering unique perspectives and creative solutions",
+        },
+      ],
+    },
+    {
+      time: "Evening",
+      activities: [
+        {
+          name: "Home tasks",
+          challenge: "Initiating and completing chores",
+          strength: "Bursts of energy for preferred activities",
+        },
+        {
+          name: "Leisure time",
+          challenge: "Difficulty in transitioning between activities",
+          strength: "Intense engagement in hobbies or interests",
+        },
+        {
+          name: "Bedtime routine",
+          challenge: "Racing thoughts may delay sleep",
+          strength: "Reflection and problem-solving during quiet time",
+        },
+      ],
+    },
+  ]
+
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <header className="flex h-14 items-center border-b px-4 lg:px-6">
@@ -185,40 +248,51 @@ export default function Component() {
             <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
               ADHD and Autism in Daily Life
             </h2>
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
-              <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="challenges">
-                  <AccordionTrigger className="text-lg font-semibold text-primary">
-                    Challenges
+            <p className="mb-8 text-xl text-muted-foreground">
+              Experience a day in the life of individuals with ADHD and Autism.
+              Explore the unique challenges and strengths that come with
+              neurodiversity in everyday situations.
+            </p>
+            <Accordion type="single" collapsible className="w-full">
+              {dailyLifeSchedule.map((timeBlock, index) => (
+                <AccordionItem value={timeBlock.time.toLowerCase()} key={index}>
+                  <AccordionTrigger className="text-xl font-semibold">
+                    {timeBlock.time}
                   </AccordionTrigger>
                   <AccordionContent>
-                    <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
-                      <li>Time management and organization</li>
-                      <li>Social interactions and communication</li>
-                      <li>Sensory sensitivities</li>
-                      <li>Executive functioning</li>
-                      <li>Emotional regulation</li>
-                    </ul>
+                    <div className="grid gap-4">
+                      {timeBlock.activities.map((activity, activityIndex) => (
+                        <Card key={activityIndex}>
+                          <CardContent className="p-4">
+                            <h4 className="mb-2 text-lg font-semibold">
+                              {activity.name}
+                            </h4>
+                            <div className="grid gap-2">
+                              <div>
+                                <span className="font-medium text-primary">
+                                  Challenge:{" "}
+                                </span>
+                                <span className="text-muted-foreground">
+                                  {activity.challenge}
+                                </span>
+                              </div>
+                              <div>
+                                <span className="font-medium text-primary">
+                                  Strength:{" "}
+                                </span>
+                                <span className="text-muted-foreground">
+                                  {activity.strength}
+                                </span>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
-              </Accordion>
-              <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="strengths">
-                  <AccordionTrigger className="text-lg font-semibold text-primary">
-                    Strengths
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
-                      <li>Creativity and out-of-the-box thinking</li>
-                      <li>Hyperfocus on areas of interest</li>
-                      <li>Pattern recognition and problem-solving</li>
-                      <li>Attention to detail</li>
-                      <li>Unique perspectives and insights</li>
-                    </ul>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </div>
+              ))}
+            </Accordion>
           </div>
         </section>
         <section
