@@ -106,20 +106,26 @@ export default function Component() {
             </h2>
             <Tabs defaultValue="adhd" className="w-full">
               <TabsList className="mb-4 grid w-full grid-cols-2">
-                <TabsTrigger value="adhd" className="text-lg font-semibold">
+                <TabsTrigger
+                  value="adhd"
+                  className="text-base font-semibold md:text-lg"
+                >
                   TDAH
                 </TabsTrigger>
-                <TabsTrigger value="autismo" className="text-lg font-semibold">
+                <TabsTrigger
+                  value="autismo"
+                  className="text-base font-semibold md:text-lg"
+                >
                   Autismo
                 </TabsTrigger>
               </TabsList>
               <TabsContent value="adhd">
                 <Card>
-                  <CardContent className="p-6">
-                    <h3 className="mb-4 text-2xl font-bold text-primary">
+                  <CardContent className="p-4 md:p-6">
+                    <h3 className="mb-4 text-xl font-bold text-primary md:text-2xl">
                       TDAH
                     </h3>
-                    <p className="mb-4 text-muted-foreground">
+                    <p className="mb-4 text-sm text-muted-foreground md:text-base">
                       O Transtorno de Déficit de Atenção e Hiperatividade (TDAH)
                       é um transtorno neurológico que afeta milhões de pessoas
                       em todo o mundo, tanto crianças quanto adultos.
@@ -138,11 +144,11 @@ export default function Component() {
               </TabsContent>
               <TabsContent value="autismo">
                 <Card>
-                  <CardContent className="p-6">
-                    <h3 className="mb-4 text-2xl font-bold text-primary">
+                  <CardContent className="p-4 md:p-6">
+                    <h3 className="mb-4 text-xl font-bold text-primary md:text-2xl">
                       Autismo
                     </h3>
-                    <p className="mb-4 text-muted-foreground">
+                    <p className="mb-4 text-sm text-muted-foreground md:text-base">
                       O Transtorno do Espectro Autista (TEA) é uma condição
                       complexa do neurodesenvolvimento que envolve desafios em
                       três áreas principais: interação social, comunicação e
@@ -170,7 +176,7 @@ export default function Component() {
             <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
               Perspectivas Visuais
             </h2>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {[
                 {
                   text: "Criança com TDAH concentrando-se em uma tarefa",
@@ -209,7 +215,7 @@ export default function Component() {
                       src={caption.image}
                       width="400"
                     />
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-xs text-muted-foreground sm:text-sm">
                       {caption.text}
                     </p>
                   </CardContent>
@@ -223,7 +229,7 @@ export default function Component() {
             <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
               TDAH e Autismo na Vida Diária
             </h2>
-            <p className="mb-8 text-xl text-muted-foreground">
+            <p className="mb-8 text-base text-muted-foreground md:text-xl">
               Experimente um dia na vida de indivíduos com TDAH e Autismo.
               Explore os desafios únicos e os pontos fortes que vêm com a
               neurodiversidade em situações cotidianas.
@@ -231,7 +237,7 @@ export default function Component() {
             <Accordion type="single" collapsible className="w-full">
               {dailyLifeSchedule.map((timeBlock, index) => (
                 <AccordionItem value={timeBlock.time.toLowerCase()} key={index}>
-                  <AccordionTrigger className="text-xl font-semibold">
+                  <AccordionTrigger className="text-lg font-semibold md:text-xl">
                     {timeBlock.time}
                   </AccordionTrigger>
                   <AccordionContent>
@@ -239,7 +245,7 @@ export default function Component() {
                       {timeBlock.activities.map((activity, activityIndex) => (
                         <Card key={activityIndex}>
                           <CardContent className="p-4">
-                            <h4 className="mb-2 text-lg font-semibold">
+                            <h4 className="mb-2 text-base font-semibold md:text-lg">
                               {activity.name}
                             </h4>
                             <div className="grid gap-2">
@@ -247,7 +253,7 @@ export default function Component() {
                                 <span className="font-medium text-primary">
                                   Desafio:{" "}
                                 </span>
-                                <span className="text-muted-foreground">
+                                <span className="text-sm text-muted-foreground md:text-base">
                                   {activity.challenge}
                                 </span>
                               </div>
@@ -255,7 +261,7 @@ export default function Component() {
                                 <span className="font-medium text-primary">
                                   Ponto forte:{" "}
                                 </span>
-                                <span className="text-muted-foreground">
+                                <span className="text-sm text-muted-foreground md:text-base">
                                   {activity.strength}
                                 </span>
                               </div>
@@ -279,7 +285,7 @@ export default function Component() {
               Acessibilidade para TDAH e Autismo
             </h2>
 
-            <div className="mb-12 grid gap-8 md:grid-cols-3">
+            <div className="mb-12 grid gap-8 sm:grid-cols-2 md:grid-cols-3">
               {accessibilityStats.map((stat, index) => (
                 <AnimatedInfoGraphic
                   key={index}
@@ -289,7 +295,7 @@ export default function Component() {
               ))}
             </div>
 
-            <div className="grid gap-6 lg:grid-cols-3 lg:gap-12">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12">
               {[
                 {
                   title: "Adaptações Ambientais",
@@ -320,11 +326,11 @@ export default function Component() {
                 },
               ].map((category, index) => (
                 <Card key={index}>
-                  <CardContent className="p-6">
-                    <h3 className="mb-4 text-xl font-bold text-primary">
+                  <CardContent className="p-4 md:p-6">
+                    <h3 className="mb-4 text-lg font-bold text-primary md:text-xl">
                       {category.title}
                     </h3>
-                    <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+                    <ul className="list-disc space-y-2 pl-6 text-sm text-muted-foreground md:text-base">
                       {category.items.map((item, itemIndex) => (
                         <li key={itemIndex}>{item}</li>
                       ))}
@@ -340,16 +346,16 @@ export default function Component() {
             <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
               Simulador Interativo de Experiência Sensorial
             </h2>
-            <p className="mb-8 text-xl text-muted-foreground">
+            <p className="mb-8 text-base text-muted-foreground md:text-xl">
               Ajuste os controles deslizantes abaixo para simular diferentes
               experiências sensoriais que indivíduos com TDAH ou Autismo podem
               enfrentar. Esta ferramenta interativa visa promover compreensão e
               empatia.
             </p>
-            <div className="grid gap-6 lg:grid-cols-3 lg:gap-12">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12">
               <Card>
-                <CardContent className="p-6">
-                  <h3 className="mb-4 text-xl font-semibold">
+                <CardContent className="p-4 md:p-6">
+                  <h3 className="mb-4 text-lg font-semibold md:text-xl">
                     Sensibilidade Visual
                   </h3>
                   <Slider
@@ -378,7 +384,7 @@ export default function Component() {
                       animation: `flicker ${101 - visualIntensity}ms infinite`,
                     }}
                   ></div>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-xs text-muted-foreground md:text-sm">
                     Isso simula sensibilidades visuais a padrões e luzes
                     piscando. Dica: Use iluminação natural ou lâmpadas de cor
                     quente e minimize padrões no ambiente.
@@ -386,8 +392,8 @@ export default function Component() {
                 </CardContent>
               </Card>
               <Card>
-                <CardContent className="p-6">
-                  <h3 className="mb-4 text-xl font-semibold">
+                <CardContent className="p-4 md:p-6">
+                  <h3 className="mb-4 text-lg font-semibold md:text-xl">
                     Sensibilidade Auditiva
                   </h3>
                   <Slider
@@ -407,7 +413,7 @@ export default function Component() {
                   >
                     Reproduzir Som de Exemplo
                   </Button>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-xs text-muted-foreground md:text-sm">
                     Isso simula sensibilidades auditivas ao ruído de fundo.
                     Dica: Use fones de ouvido com cancelamento de ruído ou crie
                     zonas silenciosas em espaços de convivência e trabalho.
@@ -415,8 +421,8 @@ export default function Component() {
                 </CardContent>
               </Card>
               <Card>
-                <CardContent className="p-6">
-                  <h3 className="mb-4 text-xl font-semibold">
+                <CardContent className="p-4 md:p-6">
+                  <h3 className="mb-4 text-lg font-semibold md:text-xl">
                     Sensibilidade Tátil
                   </h3>
                   <Slider
@@ -433,13 +439,13 @@ export default function Component() {
                     }}
                   >
                     <span
-                      className="select-none text-4xl"
+                      className="select-none text-2xl md:text-4xl"
                       style={{ filter: `blur(${tactileIntensity / 10}px)` }}
                     >
                       Toque
                     </span>
                   </div>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-xs text-muted-foreground md:text-sm">
                     Isso representa sensibilidades táteis a texturas e toques.
                     Dica: Escolha materiais de vestuário confortáveis e esteja
                     atento às texturas no ambiente.
