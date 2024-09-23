@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client"
 
-import { useState } from "react"
+import { useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -22,6 +22,8 @@ export default function Component() {
   const [visualIntensity, setVisualIntensity] = useState(50)
   const [audioIntensity, setAudioIntensity] = useState(50)
   const [tactileIntensity, setTactileIntensity] = useState(50)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
 
   const accessibilityStats = [
     { label: "Indivíduos com deficiência", percentage: 15 },
@@ -96,11 +98,25 @@ export default function Component() {
     },
   ]
 
+  const handleAudioToggle = () => {
+    if (isPlaying) {
+      audioRef.current?.pause()
+      audioRef.current!.currentTime = 0
+      setIsPlaying(false)
+    } else {
+      audioRef.current = new Audio("/audio/white-noise.MP3")
+      audioRef.current.volume = audioIntensity / 100
+      audioRef.current.play()
+      setIsPlaying(true)
+    }
+  }
+
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <main className="flex-1">
-        <section id="sobre" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
+        <section id="sobre" className="relative w-full py-12 md:py-24 lg:py-32">
+          <div className="absolute inset-0 bg-[url('/assets/puzzle-background.jpg')] bg-cover bg-center opacity-10"></div>
+          <div className="container relative px-4 md:px-6">
             <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
               Compreendendo o TDAH e o Autismo
             </h2>
@@ -145,7 +161,7 @@ export default function Component() {
               <TabsContent value="autismo">
                 <Card>
                   <CardContent className="p-4 md:p-6">
-                    <h3 className="mb-4 text-xl font-bold text-primary md:text-2xl">
+                    <h3 className="mb-4 text-xl font-bold text-secondary md:text-2xl">
                       Autismo
                     </h3>
                     <p className="mb-4 text-sm text-muted-foreground md:text-base">
@@ -173,7 +189,7 @@ export default function Component() {
           className="w-full bg-muted py-12 md:py-24 lg:py-32"
         >
           <div className="container px-4 md:px-6">
-            <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
+            <h2 className="mb-8 text-3xl font-bold tracking-tighter text-accent sm:text-4xl md:text-5xl">
               Perspectivas Visuais
             </h2>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -224,10 +240,15 @@ export default function Component() {
             </div>
           </div>
         </section>
-        <section id="vida-diária" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
-              TDAH e Autismo na Vida Diária
+        <section
+          id="vida-diária"
+          className="relative w-full py-12 md:py-24 lg:py-32"
+        >
+          <div className="absolute inset-0 bg-[url('/assets/daily-life-background.jpg')] bg-cover bg-center opacity-10"></div>
+          <div className="container relative px-4 md:px-6">
+            <h2 className="mb-8 text-3xl font-bold tracking-tighter text-secondary sm:text-4xl md:text-5xl">
+              <span className="text-secondary">TDAH</span> e Autismo na Vida
+              Diária
             </h2>
             <p className="mb-8 text-base text-muted-foreground md:text-xl">
               Experimente um dia na vida de indivíduos com TDAH e Autismo.
@@ -258,7 +279,7 @@ export default function Component() {
                                 </span>
                               </div>
                               <div>
-                                <span className="font-medium text-primary">
+                                <span className="font-medium text-accent">
                                   Ponto forte:{" "}
                                 </span>
                                 <span className="text-sm text-muted-foreground md:text-base">
@@ -327,7 +348,7 @@ export default function Component() {
               ].map((category, index) => (
                 <Card key={index}>
                   <CardContent className="p-4 md:p-6">
-                    <h3 className="mb-4 text-lg font-bold text-primary md:text-xl">
+                    <h3 className="mb-4 text-lg font-bold text-secondary md:text-xl">
                       {category.title}
                     </h3>
                     <ul className="list-disc space-y-2 pl-6 text-sm text-muted-foreground md:text-base">
@@ -341,9 +362,13 @@ export default function Component() {
             </div>
           </div>
         </section>
-        <section id="experiência" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
+        <section
+          id="experiência"
+          className="relative w-full py-12 md:py-24 lg:py-32"
+        >
+          <div className="absolute inset-0 bg-[url('/assets/sensory-background.jpg')] bg-cover bg-center opacity-10"></div>
+          <div className="container relative px-4 md:px-6">
+            <h2 className="mb-8 text-3xl font-bold tracking-tighter text-secondary sm:text-4xl md:text-5xl">
               Simulador Interativo de Experiência Sensorial
             </h2>
             <p className="mb-8 text-base text-muted-foreground md:text-xl">
@@ -404,14 +429,12 @@ export default function Component() {
                     className="mb-4"
                   />
                   <Button
-                    onClick={() => {
-                      const audio = new Audio("/audio/white-noise.MP3")
-                      audio.volume = audioIntensity / 100
-                      audio.play()
-                    }}
-                    className="mb-4 w-full"
+                    onClick={handleAudioToggle}
+                    className={`mb-4 w-full ${
+                      isPlaying ? "bg-stop text-white hover:bg-stopHover" : ""
+                    }`}
                   >
-                    Reproduzir Som de Exemplo
+                    {isPlaying ? "Parar Som" : "Reproduzir Som de Exemplo"}
                   </Button>
                   <p className="text-xs text-muted-foreground md:text-sm">
                     Isso simula sensibilidades auditivas ao ruído de fundo.
@@ -433,7 +456,7 @@ export default function Component() {
                     className="mb-4"
                   />
                   <div
-                    className="mb-4 flex h-40 w-full items-center justify-center overflow-hidden rounded-md bg-primary/10"
+                    className="mb-4 flex h-40 w-full items-center justify-center overflow-hidden rounded-md bg-accent/10"
                     style={{
                       boxShadow: `inset 0 0 ${tactileIntensity}px 0 rgba(0,0,0,0.5)`,
                     }}
