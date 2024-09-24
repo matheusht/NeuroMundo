@@ -32,7 +32,15 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
-        <MainNav />
+        <div className="flex items-center space-x-4">
+          <MainNav />
+          <Link
+            href="/forms"
+            className="rounded-md bg-primary px-3 py-2 text-sm font-medium text-secondary-foreground transition-colors hover:bg-primary/90"
+          >
+            Formulários
+          </Link>
+        </div>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="hidden md:flex md:gap-6">
             <TooltipProvider>
@@ -60,6 +68,9 @@ export function SiteHeader() {
             </SheetTrigger>
             <SheetContent side="right">
               <nav className="flex flex-col gap-4">
+                <Link href="/forms" className="text-sm font-medium">
+                  Formulários
+                </Link>
                 {navItems.map((item) => (
                   <Link
                     key={item.name}

@@ -40,7 +40,7 @@ export default function Component() {
   }
 
   const accessibilityStats = [
-    { label: "Indivíduos com TDAH ou Autismo", percentage: 15 },
+    { label: "Indivíduos com TDAH ou Autismo no mundo", percentage: 15 },
     { label: "Sites totalmente acessíveis", percentage: 2 },
     {
       label: "Aumento no engajamento dos usuários com design acessível",
@@ -236,8 +236,8 @@ export default function Component() {
                   image: "/assets/TDAH1.jpg?height=300&width=400",
                 },
                 {
-                  text: "Adulto com Autismo envolvido em um interesse especial",
-                  image: "/assets/autismo1.png?height=300&width=400",
+                  text: "Ferramentas interativas para melhorar a concentração em crianças com TDAH",
+                  image: "/assets/TDAH2.jpg?height=300&width=400",
                 },
                 {
                   text: "Símbolos de conscientização sobre TDAH e Autismo",
@@ -248,8 +248,8 @@ export default function Component() {
                   image: "/assets/autismo3.png?height=300&width=400",
                 },
                 {
-                  text: "Ferramentas interativas para melhorar a concentração em crianças com TDAH",
-                  image: "/assets/TDAH2.jpg?height=300&width=400",
+                  text: "Adulto com Autismo envolvido em um interesse especial",
+                  image: "/assets/autismo1.png?height=300&width=400",
                 },
                 {
                   text: "Sala de aula inclusiva para estudantes neurodiversos",
@@ -312,7 +312,7 @@ export default function Component() {
                             </h4>
                             <div className="grid gap-2">
                               <div>
-                                <span className="font-medium text-primary md:text-lg">
+                                <span className="font-medium text-primary md:text-xl">
                                   Desafio:{" "}
                                 </span>
                                 <span className="text-sm text-muted-foreground md:text-xl">
@@ -320,7 +320,7 @@ export default function Component() {
                                 </span>
                               </div>
                               <div>
-                                <span className="font-medium text-accent md:text-lg">
+                                <span className="font-medium text-accent md:text-xl">
                                   Ponto forte:{" "}
                                 </span>
                                 <span className="text-sm text-muted-foreground md:text-xl">
@@ -437,7 +437,7 @@ export default function Component() {
                     onValueChange={(value) => setVisualIntensity(value[0])}
                     max={100}
                     step={1}
-                    className="mb-4"
+                    className="mb-4 cursor-pointer"
                     aria-label="Ajustar intensidade visual"
                   />
                   <div className="mb-4 text-center text-lg font-semibold">
@@ -484,7 +484,7 @@ export default function Component() {
                     onValueChange={(value) => setAudioIntensity(value[0])}
                     max={100}
                     step={1}
-                    className="mb-4"
+                    className="mb-4 cursor-pointer"
                     aria-label="Ajustar intensidade auditiva"
                   />
                   <div className="mb-4 text-center text-lg font-semibold">
@@ -520,7 +520,7 @@ export default function Component() {
                     onValueChange={(value) => setTactileIntensity(value[0])}
                     max={100}
                     step={1}
-                    className="mb-4"
+                    className="mb-4 cursor-pointer"
                     aria-label="Ajustar intensidade tátil"
                   />
                   <div className="mb-4 text-center text-lg font-semibold">
