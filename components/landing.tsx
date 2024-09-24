@@ -218,18 +218,18 @@ export default function Component() {
           id="galeria"
           className="relative w-full overflow-hidden bg-muted py-12 md:py-24 lg:py-32"
         >
-          <div className="absolute -right-24 top-10 rotate-90">
+          <div className="absolute -right-24 top-10 z-0 rotate-90">
             <PuzzleIcon className="hidden size-96 fill-red-400 stroke-red-600 opacity-65 md:block" />
           </div>
 
-          <div className="rotate absolute -left-24 bottom-10">
+          <div className="rotate absolute -left-24 bottom-10 z-0">
             <HeartHandshake className="hidden size-96 fill-cyan-400 stroke-cyan-600  opacity-65 md:block" />
           </div>
-          <div className="container px-4 md:px-6">
+          <div className="container relative z-20 px-4 md:px-6">
             <h2 className="mb-8 text-4xl font-bold tracking-tighter text-accent sm:text-6xl md:text-6xl">
               Perspectivas Visuais
             </h2>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="z-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {[
                 {
                   text: "Criança com TDAH concentrando-se em uma tarefa",
