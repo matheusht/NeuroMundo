@@ -7,11 +7,9 @@ import Link from "next/link"
 import {
   AlarmClock,
   HeartHandshake,
-  LucidePuzzle,
   Moon,
   PuzzleIcon,
   Ribbon,
-  RussianRubleIcon,
   SunMedium,
 } from "lucide-react"
 
@@ -138,16 +136,10 @@ export default function Component() {
           className="relative w-full overflow-hidden py-12 md:py-24 lg:py-32"
         >
           <div className="absolute -left-16 bottom-10 hidden rotate-12 md:block">
-            <PuzzleIcon
-              className={"size-96 fill-blue-700 stroke-blue-500 opacity-65"}
-            />
+            <PuzzleIcon className="size-96 fill-blue-700 stroke-blue-500 opacity-65" />
           </div>
           <div className="absolute -right-24 top-10 hidden rotate-90 md:block">
-            <PuzzleIcon
-              className={
-                "size-64 fill-yellow-400 stroke-yellow-600 opacity-65 lg:size-96"
-              }
-            />
+            <PuzzleIcon className="size-64 fill-yellow-400 stroke-yellow-600 opacity-65 lg:size-96" />
           </div>
           <div className="absolute inset-0 bg-[url('/assets/puzzle-background.jpg')] bg-cover bg-center opacity-10"></div>
           <div className="container relative px-4 md:px-6">
@@ -227,19 +219,11 @@ export default function Component() {
           className="relative w-full overflow-hidden bg-muted py-12 md:py-24 lg:py-32"
         >
           <div className="absolute -right-24 top-10 rotate-90">
-            <PuzzleIcon
-              className={
-                "hidden size-96 fill-red-400 stroke-red-600 opacity-65 md:block"
-              }
-            />
+            <PuzzleIcon className="hidden size-96 fill-red-400 stroke-red-600 opacity-65 md:block" />
           </div>
 
           <div className="rotate absolute -left-24 bottom-10">
-            <HeartHandshake
-              className={
-                "hidden size-96 fill-cyan-400 stroke-cyan-600  opacity-65 md:block"
-              }
-            />
+            <HeartHandshake className="hidden size-96 fill-cyan-400 stroke-cyan-600  opacity-65 md:block" />
           </div>
           <div className="container px-4 md:px-6">
             <h2 className="mb-8 text-4xl font-bold tracking-tighter text-accent sm:text-6xl md:text-6xl">
@@ -298,11 +282,7 @@ export default function Component() {
           className="relative w-full overflow-hidden py-12 md:py-24 lg:py-32"
         >
           <div className="rotate absolute -top-10 right-0 translate-x-1/4">
-            <Ribbon
-              className={
-                "hidden size-[800px] text-yellow-500 opacity-25 md:block "
-              }
-            />
+            <Ribbon className="hidden size-[800px] text-yellow-500 opacity-25 md:block " />
           </div>
           <div className="absolute inset-0 bg-[url('/assets/daily-life-background.jpg')] bg-cover bg-center opacity-10"></div>
           <div className="container relative px-4 md:px-6">
@@ -318,7 +298,7 @@ export default function Component() {
             <Accordion type="single" collapsible className="w-full">
               {dailyLifeSchedule.map((timeBlock, index) => (
                 <AccordionItem value={timeBlock.time.toLowerCase()} key={index}>
-                  <AccordionTrigger className=" flex w-full justify-start gap-3 text-2xl font-semibold md:text-3xl">
+                  <AccordionTrigger className="flex w-full items-center justify-start gap-3 text-2xl font-semibold md:text-3xl [&[data-state=open]>svg]:rotate-0">
                     {createElement(timeBlock.icon, { className: "size-8" })}{" "}
                     {timeBlock.time}
                   </AccordionTrigger>
@@ -513,9 +493,7 @@ export default function Component() {
                   <Button
                     onClick={handleAudioToggle}
                     className={`mb-4 w-full ${
-                      isPlaying
-                        ? "bg-stop-button hover:bg-stop-button-hover text-white"
-                        : ""
+                      isPlaying ? "bg-stop text-white hover:bg-stopHover" : ""
                     }`}
                   >
                     {isPlaying ? "Parar Som" : "Reproduzir Som de Exemplo"}
