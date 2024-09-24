@@ -73,7 +73,7 @@ export function AnimatedInfoGraphic({
           {isVisible ? percentage : 0}%
         </text>
       </svg>
-      <p className="mt-4 text-center text-muted-foreground">{label}</p>
+      <p className="mt-4 text-center text-lg text-muted-foreground">{label}</p>
     </div>
   )
 }
