@@ -28,8 +28,6 @@ import { Slider } from "@/components/ui/slider"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { AnimatedInfoGraphic } from "@/components/animated-info-graphic"
 
-import Puzzle from "./puzzle"
-
 export default function Component() {
   const [visualIntensity, setVisualIntensity] = useState(50)
   const [audioIntensity, setAudioIntensity] = useState(50)
