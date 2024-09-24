@@ -68,7 +68,7 @@ export function AnimatedInfoGraphic({
           y="100"
           textAnchor="middle"
           dy=".3em"
-          className="fill-primary text-4xl font-bold"
+          className="fill-primary text-6xl font-bold"
         >
           {isVisible ? percentage : 0}%
         </text>

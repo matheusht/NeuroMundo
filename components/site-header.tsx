@@ -40,7 +40,7 @@ export function SiteHeader() {
                 <Tooltip key={item.name}>
                   <TooltipTrigger asChild>
                     <Link
-                      className="rounded-md py-3 text-sm font-medium transition-colors hover:text-primary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                      className="rounded-md py-3 text-base font-medium transition-colors hover:text-primary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                       href={`#${item.name.toLowerCase().replace(" ", "-")}`}
                     >
                       {item.name}

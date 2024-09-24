@@ -95,22 +95,22 @@ export default function Component() {
       <main className="flex-1">
         <section id="about" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
-            <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
+            <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-6xl md:text-6xl">
               Understanding ADHD and Autism
             </h2>
             <Tabs defaultValue="adhd" className="w-full">
               <TabsList className="mb-4 grid w-full grid-cols-2">
-                <TabsTrigger value="adhd" className="text-lg font-semibold">
+                <TabsTrigger value="adhd" className="text-2xl font-semibold">
                   ADHD
                 </TabsTrigger>
-                <TabsTrigger value="autism" className="text-lg font-semibold">
+                <TabsTrigger value="autism" className="text-2xl font-semibold">
                   Autism
                 </TabsTrigger>
               </TabsList>
               <TabsContent value="adhd">
                 <Card>
                   <CardContent className="p-6">
-                    <h3 className="mb-4 text-2xl font-bold text-primary">
+                    <h3 className="mb-4 text-3xl font-bold text-primary">
                       ADHD
                     </h3>
                     <p className="mb-4 text-muted-foreground">
@@ -127,7 +127,7 @@ export default function Component() {
               <TabsContent value="autism">
                 <Card>
                   <CardContent className="p-6">
-                    <h3 className="mb-4 text-2xl font-bold text-primary">
+                    <h3 className="mb-4 text-3xl font-bold text-primary">
                       Autism
                     </h3>
                     <p className="mb-4 text-muted-foreground">
@@ -149,7 +149,7 @@ export default function Component() {
           className="w-full bg-muted py-12 md:py-24 lg:py-32"
         >
           <div className="container px-4 md:px-6">
-            <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
+            <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-6xl md:text-6xl">
               Visual Perspectives
             </h2>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -182,13 +182,13 @@ export default function Component() {
         </section>
         <section id="daily-life" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
-            <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
+            <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-6xl md:text-6xl">
               ADHD and Autism in Daily Life
             </h2>
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="challenges">
-                  <AccordionTrigger className="text-lg font-semibold text-primary">
+                  <AccordionTrigger className="text-2xl font-semibold text-primary">
                     Challenges
                   </AccordionTrigger>
                   <AccordionContent>
@@ -204,7 +204,7 @@ export default function Component() {
               </Accordion>
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="strengths">
-                  <AccordionTrigger className="text-lg font-semibold text-primary">
+                  <AccordionTrigger className="text-2xl font-semibold text-primary">
                     Strengths
                   </AccordionTrigger>
                   <AccordionContent>
@@ -226,7 +226,7 @@ export default function Component() {
           className="w-full bg-muted py-12 md:py-24 lg:py-32"
         >
           <div className="container px-4 md:px-6">
-            <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
+            <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-6xl md:text-6xl">
               Accessibility for ADHD and Autism
             </h2>
 
@@ -272,7 +272,7 @@ export default function Component() {
               ].map((category, index) => (
                 <Card key={index}>
                   <CardContent className="p-6">
-                    <h3 className="mb-4 text-xl font-bold text-primary">
+                    <h3 className="mb-4 text-3xl font-bold text-primary">
                       {category.title}
                     </h3>
                     <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
@@ -288,10 +288,10 @@ export default function Component() {
         </section>
         <section id="experience" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
-            <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl">
+            <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-6xl md:text-6xl">
               Interactive Sensory Experience Simulator
             </h2>
-            <p className="mb-8 text-xl text-muted-foreground">
+            <p className="mb-8 text-3xl text-muted-foreground">
               Adjust the sliders below to simulate different sensory experiences
               that individuals with ADHD or Autism might encounter. This
               interactive tool aims to promote understanding and empathy.
@@ -299,7 +299,7 @@ export default function Component() {
             <div className="grid gap-6 lg:grid-cols-3 lg:gap-12">
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="mb-4 text-xl font-semibold">
+                  <h3 className="mb-4 text-3xl font-semibold">
                     Visual Sensitivity
                   </h3>
                   <Slider
@@ -338,7 +338,7 @@ export default function Component() {
               </Card>
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="mb-4 text-xl font-semibold">
+                  <h3 className="mb-4 text-3xl font-semibold">
                     Auditory Sensitivity
                   </h3>
                   <Slider
@@ -367,7 +367,7 @@ export default function Component() {
               </Card>
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="mb-4 text-xl font-semibold">
+                  <h3 className="mb-4 text-3xl font-semibold">
                     Tactile Sensitivity
                   </h3>
                   <Slider
@@ -384,7 +384,7 @@ export default function Component() {
                     }}
                   >
                     <span
-                      className="select-none text-4xl"
+                      className="select-none text-6xl"
                       style={{ filter: `blur(${tactileIntensity / 10}px)` }}
                     >
                       Touch
