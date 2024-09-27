@@ -1,3 +1,4 @@
+// navigation-modal.tsx
 "use client"
 
 import { useEffect, useState } from "react"
@@ -17,9 +18,14 @@ import {
 interface NavigationModalProps {
   href: string
   children: React.ReactNode
+  className?: string
 }
 
-export function NavigationModal({ href, children }: NavigationModalProps) {
+export function NavigationModal({
+  href,
+  children,
+  className,
+}: NavigationModalProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [targetHref, setTargetHref] = useState("")
   const router = useRouter()
@@ -46,7 +52,7 @@ export function NavigationModal({ href, children }: NavigationModalProps) {
 
   return (
     <>
-      <a href={href} onClick={handleClick}>
+      <a href={href} onClick={handleClick} className={className}>
         {children}
       </a>
       <AlertDialog open={isOpen} onOpenChange={setIsOpen}>

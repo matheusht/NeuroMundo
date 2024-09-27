@@ -343,7 +343,7 @@ export default function Component() {
         </section>
         <section
           id="acessibilidade"
-          className="w-full bg-muted py-12 md:py-24 lg:py-32"
+          className="color w-full bg-muted py-12 md:py-24 lg:py-32"
         >
           <div className="container px-4 md:px-6">
             <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-6xl md:text-6xl">
