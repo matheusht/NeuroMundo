@@ -57,21 +57,21 @@ export function SiteHeader() {
           <MainNav />
         </div>
         <div className="flex flex-1 items-center justify-end space-x-4">
-          <nav className="hidden md:flex md:gap-6">
+          <nav className="hidden md:flex md:gap-6 ">
             <NavigationModal href="/forms">
-              <span className="rounded-md bg-primary px-3 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
+              <span className="rounded-[8px] bg-primary p-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
                 Soluções Digitais
               </span>
             </NavigationModal>
 
             <NavigationModal href="/scholar">
-              <span className="rounded-md bg-primary px-3 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
+              <span className="rounded-[8px] bg-primary p-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
                 Soluções Escolares
               </span>
             </NavigationModal>
 
             <NavigationModal href="/business">
-              <span className="rounded-md bg-primary px-3 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
+              <span className="rounded-[8px] bg-primary p-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
                 Soluções Empresariais
               </span>
             </NavigationModal>

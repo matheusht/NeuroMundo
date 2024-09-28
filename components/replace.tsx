@@ -99,7 +99,7 @@ export default function Component() {
               Understanding ADHD and Autism
             </h2>
             <Tabs defaultValue="adhd" className="w-full">
-              <TabsList className="mb-4 grid w-full grid-cols-2">
+              <TabsList className="mb-4 grid w-full grid-cols-2 bg-slate-400/40">
                 <TabsTrigger value="adhd" className="text-2xl font-semibold">
                   ADHD
                 </TabsTrigger>

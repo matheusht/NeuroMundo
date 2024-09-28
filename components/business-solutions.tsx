@@ -120,7 +120,7 @@ export default function BusinessSolutions() {
       </h1>
 
       <Tabs defaultValue="businesses" className="w-full">
-        <TabsList className="mb-6 grid w-full grid-cols-2">
+        <TabsList className="mb-6 grid min-h-12 w-full grid-cols-2 bg-slate-400/40">
           <TabsTrigger
             value="businesses"
             className="px-2 py-1 text-base sm:px-4 sm:py-2 sm:text-sm md:text-base"

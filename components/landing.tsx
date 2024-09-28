@@ -147,7 +147,7 @@ export default function Component() {
               Compreendendo o TDAH e o Autismo
             </h2>
             <Tabs defaultValue="adhd" className="size-full">
-              <TabsList className="grid size-full min-h-14 grid-cols-2">
+              <TabsList className="grid size-full min-h-14 grid-cols-2 bg-slate-400/40">
                 <TabsTrigger
                   value="adhd"
                   className="text-xl font-semibold md:text-2xl "

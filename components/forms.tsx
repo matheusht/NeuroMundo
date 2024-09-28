@@ -103,7 +103,7 @@ export default function FormsPage() {
         Formulários e Menus de TDAH e Autismo
       </h1>
       <Tabs defaultValue="forms" className="w-full">
-        <TabsList className="grid w-full grid-cols-2">
+        <TabsList className="grid w-full grid-cols-2 bg-slate-400/40">
           <TabsTrigger value="forms">Formulários</TabsTrigger>
           <TabsTrigger value="menus">Menus de Restaurante</TabsTrigger>
         </TabsList>

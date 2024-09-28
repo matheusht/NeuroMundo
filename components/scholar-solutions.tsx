@@ -82,7 +82,7 @@ export default function ScholarSolutions() {
       </h1>
 
       <Tabs defaultValue="pomodoro" className="w-full">
-        <TabsList className="grid w-full grid-cols-2">
+        <TabsList className="grid w-full grid-cols-2 bg-slate-400/40">
           <TabsTrigger value="pomodoro">Técnica Pomodoro</TabsTrigger>
           <TabsTrigger value="checklist">Lista de Verificação</TabsTrigger>
         </TabsList>
