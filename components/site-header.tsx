@@ -1,4 +1,6 @@
 // site-header.tsx
+
+import Link from "next/link"
 import { Brain, Menu } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
