@@ -35,7 +35,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export default function ScholarSolutions() {
   const [isTimerActive, setIsTimerActive] = useState(false)
-  const [remainingTime, setRemainingTime] = useState(25 * 60) // 25 minutes in seconds
+  const [remainingTime, setRemainingTime] = useState(25 * 60)
   const [pomodoroLength, setPomodoroLength] = useState(25)
   const [breakLength, setBreakLength] = useState(5)
   const [isBreak, setIsBreak] = useState(false)

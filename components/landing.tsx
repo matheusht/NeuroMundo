@@ -25,6 +25,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Slider } from "@/components/ui/slider"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { AnimatedInfoGraphic } from "@/components/animated-info-graphic"
+import { NeurodiversityAssessment } from "@/components/neurodiversity"
 
 export default function Component() {
   const [visualIntensity, setVisualIntensity] = useState(50)
@@ -40,11 +41,16 @@ export default function Component() {
   }
 
   const accessibilityStats = [
-    { label: "Indivíduos com TDAH ou Autismo no mundo", percentage: 15 },
-    { label: "Sites totalmente acessíveis", percentage: 2 },
+    {
+      label: "Indivíduos com TDAH ou Autismo no mundo",
+      percentage: 15,
+      color: "#60A5FA",
+    },
+    { label: "Sites totalmente acessíveis", percentage: 2, color: "#34D399" },
     {
       label: "Aumento no engajamento dos usuários com design acessível",
       percentage: 40,
+      color: "#F472B6",
     },
   ]
 
@@ -356,6 +362,7 @@ export default function Component() {
                   key={index}
                   label={stat.label}
                   percentage={stat.percentage}
+                  color={stat.color}
                 />
               ))}
             </div>
@@ -552,6 +559,7 @@ export default function Component() {
             </div>
           </div>
         </section>
+        <NeurodiversityAssessment />
       </main>
       <footer className="flex w-full shrink-0 flex-col items-center gap-2 border-t px-4 py-6 sm:flex-row md:px-6">
         <p className="text-xs text-muted-foreground">

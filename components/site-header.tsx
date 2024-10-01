@@ -1,5 +1,6 @@
-// site-header.tsx
+"use client"
 
+import { useState } from "react"
 import Link from "next/link"
 import { Brain, Menu } from "lucide-react"
 
@@ -21,36 +22,11 @@ import {
 import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
 import { NavigationModal } from "@/components/navigation-modal"
+import { NeurodiversityAssessment } from "@/components/neurodiversity"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 export function SiteHeader() {
-  // const navItems = [
-  //   {
-  //     name: "Sobre",
-  //     description: "Aprenda sobre TDAH e Autismo",
-  //     href: "/#sobre",
-  //   },
-  //   {
-  //     name: "Galeria",
-  //     description: "Perspectivas visuais sobre neurodiversidade",
-  //     href: "/#galeria",
-  //   },
-  //   {
-  //     name: "Vida Diária",
-  //     description: "Desafios e pontos fortes em situações cotidianas",
-  //     href: "/#vida-diária",
-  //   },
-  //   {
-  //     name: "Acessibilidade",
-  //     description: "Criando ambientes inclusivos",
-  //     href: "/#acessibilidade",
-  //   },
-  //   {
-  //     name: "Experiência",
-  //     description: "Simulador sensorial interativo",
-  //     href: "/#experiência",
-  //   },
-  // ]
+  const [isSheetOpen, setIsSheetOpen] = useState(false)
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
@@ -77,25 +53,8 @@ export function SiteHeader() {
                 Soluções Empresariais
               </span>
             </NavigationModal>
-            {/* <TooltipProvider>
-              {navItems.map((item) => (
-                <Tooltip key={item.name}>
-                  <TooltipTrigger asChild>
-                    <NavigationModal
-                      href={item.href}
-                      className="rounded-md py-3 text-base font-medium transition-colors hover:text-primary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-                    >
-                      {item.name}
-                    </NavigationModal>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{item.description}</p>
-                  </TooltipContent>
-                </Tooltip>
-              ))}
-            </TooltipProvider> */}
           </nav>
-          <Sheet>
+          <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger className="md:hidden">
               <Menu className="size-6" />
               <span className="sr-only">Toggle menu</span>
@@ -124,11 +83,6 @@ export function SiteHeader() {
                     Soluções Empresariais
                   </span>
                 </NavigationModal>
-                {/* {navItems.map((item) => (
-                  <NavigationModal key={item.name} href={item.href}>
-                    <span className="text-sm font-medium">{item.name}</span>
-                  </NavigationModal>
-                ))} */}
               </nav>
               <div className="mt-6 flex items-center justify-start space-x-4">
                 <ThemeToggle />
@@ -186,6 +140,9 @@ export function SiteHeader() {
             </TooltipProvider>
           </div>
         </div>
+      </div>
+      <div className="fixed bottom-4 right-4 z-50 md:hidden">
+        <NeurodiversityAssessment />
       </div>
     </header>
   )

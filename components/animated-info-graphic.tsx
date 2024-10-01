@@ -6,11 +6,13 @@ import { useEffect, useRef, useState } from "react"
 interface AnimatedInfoGraphicProps {
   label: string
   percentage: number
+  color?: string
 }
 
 export function AnimatedInfoGraphic({
   label,
   percentage,
+  color,
 }: AnimatedInfoGraphicProps) {
   const [isVisible, setIsVisible] = useState(false)
   const graphRef = useRef<HTMLDivElement>(null)
@@ -44,7 +46,7 @@ export function AnimatedInfoGraphic({
           cy="100"
           r="90"
           fill="none"
-          stroke="#e2e8f0"
+          className="stroke-gray-300 dark:stroke-gray-600"
           strokeWidth="20"
         />
         <circle
@@ -52,7 +54,7 @@ export function AnimatedInfoGraphic({
           cy="100"
           r="90"
           fill="none"
-          stroke="currentColor"
+          stroke={color}
           strokeWidth="20"
           strokeDasharray={`${2 * Math.PI * 90}`}
           strokeDashoffset={
@@ -61,19 +63,22 @@ export function AnimatedInfoGraphic({
               : `${2 * Math.PI * 90}`
           }
           transform="rotate(-90 100 100)"
-          className="text-primary transition-all duration-1000 ease-out dark:text-background"
+          className="transition-all duration-1000 ease-out"
         />
         <text
           x="100"
           y="100"
           textAnchor="middle"
           dy=".3em"
-          className="fill-primary text-6xl font-bold"
+          className="text-6xl font-bold"
+          fill={color}
         >
           {isVisible ? percentage : 0}%
         </text>
       </svg>
-      <p className="mt-4 text-center text-lg text-muted-foreground">{label}</p>
+      <p className="mt-4 text-center text-lg text-gray-700 dark:text-gray-300">
+        {label}
+      </p>
     </div>
   )
 }
