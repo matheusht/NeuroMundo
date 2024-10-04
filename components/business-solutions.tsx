@@ -23,6 +23,8 @@ import {
 } from "@/components/ui/carousel"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
+import { ProductSection } from "./product-solution"
+
 export default function BusinessSolutions() {
   const businessExamples = [
     {
@@ -268,6 +270,7 @@ export default function BusinessSolutions() {
           </Card>
         </TabsContent>
       </Tabs>
+      <ProductSection />
     </div>
   )
 }
