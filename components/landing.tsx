@@ -61,18 +61,13 @@ export default function Component() {
       activities: [
         {
           name: "Acordar",
-          challenge: "Dificuldade em fazer a transição do sono para a vigília",
-          strength: "Pode ter ideias criativas ao acordar",
-        },
-        {
-          name: "Preparar-se",
-          challenge: "Desafios na função executiva ao sequenciar tarefas",
-          strength: "Pode desenvolver rotinas únicas e eficientes",
+          challenge: "Dificuldade com mudanças na rotina",
+          strength: "Capacidade de seguir rotinas estruturadas",
         },
         {
           name: "Deslocamento",
-          challenge: "Sobrecarga sensorial em ambientes movimentados",
-          strength: "Capacidade de notar detalhes que outros podem ignorar",
+          challenge: "Ansiedade em ambientes novos ou movimentados",
+          strength: "Observação aguçada do ambiente",
         },
       ],
     },
@@ -82,18 +77,13 @@ export default function Component() {
       activities: [
         {
           name: "Trabalho/Escola",
-          challenge: "Manter o foco em tarefas não preferidas",
-          strength: "Hiperfoco em assuntos interessantes",
+          challenge: "Dificuldades na comunicação social",
+          strength: "Foco intenso em áreas de interesse",
         },
         {
           name: "Intervalo para almoço",
           challenge: "Interações sociais podem ser desgastantes",
           strength: "Aprecia atividades solitárias ou conversas profundas",
-        },
-        {
-          name: "Reuniões",
-          challenge: "Processar várias vozes e informações",
-          strength: "Oferece perspectivas únicas e soluções criativas",
         },
       ],
     },
@@ -102,20 +92,14 @@ export default function Component() {
       time: "Noite",
       activities: [
         {
-          name: "Tarefas domésticas",
-          challenge: "Iniciar e concluir afazeres",
-          strength: "Explosões de energia para atividades preferidas",
-        },
-        {
           name: "Tempo livre",
-          challenge: "Dificuldade em transitar entre atividades",
-          strength: "Envolvimento intenso em hobbies ou interesses",
+          challenge: "Dificuldade em lidar com tempo não estruturado",
+          strength: "Engajamento profundo em interesses especiais",
         },
         {
           name: "Rotina de dormir",
-          challenge: "Pensamentos acelerados podem atrasar o sono",
-          strength:
-            "Reflexão e resolução de problemas durante o tempo de silêncio",
+          challenge: "Ansiedade e dificuldades para relaxar",
+          strength: "Capacidade de criar e seguir rotinas relaxantes",
         },
       ],
     },
@@ -137,7 +121,7 @@ export default function Component() {
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <main className="flex-1">
-        <section
+        {/* <section
           id="sobre"
           className="relative w-full overflow-hidden py-12 md:py-24 lg:py-32"
         >
@@ -150,7 +134,7 @@ export default function Component() {
           <div className="absolute inset-0 bg-[url('/assets/puzzle-background.jpg')] bg-cover bg-center opacity-10"></div>
           <div className="container relative px-4 md:px-6">
             <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-6xl md:text-6xl">
-              Compreendendo o TDAH e o Autismo
+              Compreendendo o Autismo
             </h2>
             <Tabs defaultValue="adhd" className="size-full">
               <TabsList className="grid size-full min-h-14 grid-cols-2 bg-slate-400/40">
@@ -219,6 +203,58 @@ export default function Component() {
               </TabsContent>
             </Tabs>
           </div>
+        </section> */}
+        <section className="relative w-full overflow-hidden bg-background py-12 md:py-24 lg:py-32">
+          <div className="absolute -left-16 bottom-10 hidden rotate-12 md:block">
+            <PuzzleIcon className="size-96 fill-blue-700 stroke-blue-500 opacity-65" />
+          </div>
+          <div className="absolute -right-24 top-10 hidden rotate-90 md:block">
+            <PuzzleIcon className="size-64 fill-yellow-400 stroke-yellow-600 opacity-65 lg:size-96" />
+          </div>
+          <div className="container relative px-4 md:px-6">
+            <h1 className="mb-4 text-4xl font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl">
+              Compreendendo o Autismo
+            </h1>
+
+            <Card className="mb-8 bg-cyan-500 text-primary-foreground">
+              <CardContent className="p-6">
+                <h2 className="mb-2 text-2xl font-semibold">
+                  Objetivo do NeuroMundo
+                </h2>
+                <p className="text-lg">
+                  O NeuroMundo é dedicado a informar sobre o Transtorno do
+                  Espectro Autista (TEA) e oferecer soluções inovadoras para
+                  empresas que buscam criar ambientes mais inclusivos. Nosso
+                  objetivo é conectar, educar e transformar a percepção sobre o
+                  autismo na sociedade e no ambiente de trabalho.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card shadow-lg transition-all duration-300 hover:shadow-xl">
+              <CardContent className="p-6">
+                <h2 className="mb-4 text-3xl font-bold text-primary">
+                  O que é Autismo?
+                </h2>
+                <p className="text-lg text-card-foreground">
+                  O Transtorno do Espectro Autista (TEA) é uma condição de
+                  neurodesenvolvimento que afeta a comunicação, interação social
+                  e comportamento. Cada pessoa com autismo é única, com seus
+                  próprios pontos fortes e desafios. O autismo é caracterizado
+                  por:
+                </p>
+                <ul className="mt-4 list-inside list-disc text-card-foreground">
+                  <li>Diferenças na comunicação e interação social</li>
+                  <li>Padrões repetitivos de comportamento ou interesses</li>
+                  <li>Sensibilidades sensoriais únicas</li>
+                  <li>
+                    Forças em áreas como atenção aos detalhes e pensamento
+                    lógico
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
         </section>
         <section
           id="galeria"
@@ -233,7 +269,7 @@ export default function Component() {
           </div>
           <div className="container relative z-20 px-4 md:px-6">
             <h2 className="mb-8 text-4xl font-bold tracking-tighter text-accent sm:text-6xl md:text-6xl">
-              Curiosidades e Caracteristicas
+              Curiosidades e Características
             </h2>
             <div className="z-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {[

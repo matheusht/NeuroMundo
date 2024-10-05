@@ -98,7 +98,7 @@ export default function ScholarSolutions() {
 
   return (
     <div className="container mx-auto py-10">
-      <h1 className="mb-8 text-4xl font-bold">
+      <h1 className="mb-8 text-4xl font-bold text-yellow-500 ">
         Soluções Práticas para Estudantes com TDAH e TEA
       </h1>
 
@@ -177,7 +177,9 @@ export default function ScholarSolutions() {
         <TabsContent value="checklist">
           <Card>
             <CardHeader>
-              <CardTitle>Lista de Verificação para Tarefas</CardTitle>
+              <CardTitle className="text-red-400">
+                Lista de Verificação para Tarefas
+              </CardTitle>
               <CardDescription>
                 Use esta lista para organizar suas tarefas escolares
               </CardDescription>
@@ -212,7 +214,9 @@ export default function ScholarSolutions() {
 
       <Card className="mt-8">
         <CardHeader>
-          <CardTitle>Símbolo de Inclusão para Estudantes Autistas</CardTitle>
+          <CardTitle className="text-primary">
+            Símbolo de Inclusão para Estudantes Autistas
+          </CardTitle>
           <CardDescription className="text-base">
             Uma solução prática para promover a inclusão e empatia nas escolas
           </CardDescription>

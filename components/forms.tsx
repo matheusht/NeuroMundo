@@ -99,7 +99,7 @@ export default function FormsPage() {
 
   return (
     <div className="container mx-auto overflow-x-hidden py-10">
-      <h1 className="mb-8 text-center text-4xl font-bold">
+      <h1 className="mb-8 text-center text-4xl font-bold text-primary ">
         Formulários e Menus de TDAH e Autismo
       </h1>
       <Tabs defaultValue="forms" className="w-full">
