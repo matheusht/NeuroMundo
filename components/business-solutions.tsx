@@ -1,9 +1,12 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client"
 
 import { useState } from "react"
 import {
+  Award,
   Briefcase,
   Calendar,
+  Handshake,
   Lightbulb,
   Mail,
   Phone,
@@ -13,6 +16,7 @@ import {
 } from "lucide-react"
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
@@ -33,52 +37,8 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 import { ProductSection } from "./product-solution"
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 
 export default function BusinessSolutions() {
-  const businessExamples = [
-    {
-      name: "Auticon",
-      description:
-        "Empresa de consultoria de TI que emprega consultores no espectro autista.",
-      implementation:
-        "Oferece ambiente de trabalho adaptado e suporte contínuo aos funcionários autistas.",
-      impact:
-        "Mais de 300 consultores autistas empregados em projetos de TI de alto nível.",
-      link: "https://auticon.com",
-    },
-    {
-      name: "Microsoft Autism Hiring Program",
-      description:
-        "Programa de contratação específico para candidatos autistas.",
-      implementation:
-        "Processo de entrevista adaptado, incluindo um evento de avaliação de 5 dias.",
-      impact:
-        "Contratação de dezenas de funcionários autistas em várias funções na Microsoft.",
-      link: "https://www.microsoft.com/en-us/diversity/inside-microsoft/cross-disability/neurodiversityhiring",
-    },
-    {
-      name: "SAP Autism at Work",
-      description:
-        "Iniciativa para integrar pessoas autistas na força de trabalho da SAP.",
-      implementation:
-        "Parcerias com organizações especializadas para recrutamento e suporte.",
-      impact:
-        "Meta de 1% da força de trabalho composta por pessoas autistas alcançada.",
-      link: "https://www.sap.com/corporate/en/company/diversity/differently-abled.html",
-    },
-    {
-      name: "Specialisterne",
-      description:
-        "Organização global que ajuda empresas a contratar e reter talentos autistas.",
-      implementation:
-        "Oferece treinamento, consultoria e suporte para empresas e candidatos autistas.",
-      impact:
-        "Milhares de empregos criados para pessoas autistas em todo o mundo.",
-      link: "https://specialisterne.com",
-    },
-  ]
-
   const specialists = [
     {
       name: "Dra. Maria Silva",
@@ -90,7 +50,7 @@ export default function BusinessSolutions() {
         phone: "(44) 9999-8888",
         email: "maria.silva@example.com",
       },
-      image: "/placeholder.svg?height=100&width=100",
+      image: "/assets/psychiatrist.png?height=100&width=100",
     },
     {
       name: "Dr. João Santos",
@@ -102,7 +62,7 @@ export default function BusinessSolutions() {
         phone: "(44) 7777-6666",
         email: "joao.santos@example.com",
       },
-      image: "/placeholder.svg?height=100&width=100",
+      image: "/assets/psychologist.png?height=100&width=100",
     },
     {
       name: "Profa. Ana Oliveira",
@@ -114,7 +74,7 @@ export default function BusinessSolutions() {
         phone: "(44) 5555-4444",
         email: "ana.oliveira@example.com",
       },
-      image: "/placeholder.svg?height=100&width=100",
+      image: "/assets/neuro.png?height=100&width=100",
     },
     {
       name: "Dr. Carlos Mendes",
@@ -126,7 +86,22 @@ export default function BusinessSolutions() {
         phone: "(44) 3333-2222",
         email: "carlos.mendes@example.com",
       },
-      image: "/placeholder.svg?height=100&width=100",
+      image: "/assets/fono.png?height=100&width=100",
+    },
+  ]
+
+  const successStories = [
+    {
+      name: "Imperador Sushi",
+      type: "Restaurante",
+      location: "Campo Mourão, PR",
+      story:
+        "O Imperador Sushi implementou uma política inovadora de reservas que prioriza famílias e indivíduos com TEA para suas salas acústicas privativas. Esta iniciativa surgiu após uma conversa com nossa plataforma, demonstrando como pequenas mudanças podem ter um grande impacto na inclusão.",
+      impact:
+        "Aumento nas reservas de famílias com membros autistas, criando um ambiente mais inclusivo e acolhedor.",
+      testimonial:
+        "A parceria com o NeuroMundo nos abriu os olhos para uma oportunidade de sermos mais inclusivos.",
+      image: "/assets/Imperador.png?height=200&width=200",
     },
   ]
 
@@ -136,83 +111,78 @@ export default function BusinessSolutions() {
         Soluções e Conexões para Autismo
       </h1>
 
-      <Tabs defaultValue="specialists" className="w-full">
+      <Tabs defaultValue="success-stories" className="w-full">
         <TabsList className="mb-6 grid min-h-12 w-full grid-cols-2 bg-slate-400/40">
+          <TabsTrigger
+            value="success-stories"
+            className="px-2 py-1 text-base sm:px-4 sm:py-2 sm:text-sm md:text-base"
+          >
+            Histórias de Sucesso
+          </TabsTrigger>
           <TabsTrigger
             value="specialists"
             className="px-2 py-1 text-base sm:px-4 sm:py-2 sm:text-sm md:text-base"
           >
             Especialistas em TEA
           </TabsTrigger>
-          <TabsTrigger
-            value="businesses"
-            className="px-2 py-1 text-base sm:px-4 sm:py-2 sm:text-sm md:text-base"
-          >
-            Negócios Inclusivos
-          </TabsTrigger>
         </TabsList>
-        <TabsContent value="businesses">
+
+        <TabsContent value="success-stories">
           <Card>
             <CardHeader>
-              <CardTitle className="flex items-center">
-                <Lightbulb className="mr-2 size-6" />
-                Exemplos de Negócios Inclusivos
+              <CardTitle className="flex items-center text-accent">
+                <Award className="mr-2 size-6 " />
+                Histórias de Sucesso: Nossos Parceiros
               </CardTitle>
               <CardDescription className="text-lg">
-                Empresas e iniciativas que estão liderando a inclusão de pessoas
-                autistas no mercado de trabalho.
+                Conheça as empresas que estão fazendo a diferença com soluções
+                inclusivas para pessoas com TEA.
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Carousel className="w-full" opts={{ loop: true }}>
-                <CarouselContent>
-                  {businessExamples.map((example, index) => (
-                    <CarouselItem
-                      key={index}
-                      className="sm:basis-1/2 md:basis-1/3"
-                    >
-                      <Card className="flex h-full flex-col justify-between">
-                        <CardHeader>
-                          <CardTitle>{example.name}</CardTitle>
-                          <CardDescription className="text-base">
-                            {example.description}
-                          </CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="mb-2">
-                            <strong>Implementação:</strong>{" "}
-                            {example.implementation}
-                          </p>
-                          <p>
-                            <strong>Impacto:</strong> {example.impact}
-                          </p>
-                        </CardContent>
-                        <CardFooter>
-                          <Button asChild className="w-full sm:w-auto">
-                            <a
-                              href={example.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              Saiba mais
-                            </a>
-                          </Button>
-                        </CardFooter>
-                      </Card>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="hidden sm:flex" />
-                <CarouselNext className="hidden sm:flex" />
-              </Carousel>
+              {successStories.map((story, index) => (
+                <Card key={index} className="mb-6">
+                  <CardHeader className="flex flex-row items-center space-x-4 pb-2">
+                    <Avatar className="size-16">
+                      <AvatarImage src={story.image} alt={story.name} />
+                      <AvatarFallback>{story.name[0]}</AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <CardTitle className="text-2xl">{story.name}</CardTitle>
+                      <CardDescription>
+                        {story.type} - {story.location}
+                      </CardDescription>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="mb-4 text-base">{story.story}</p>
+                    <Alert>
+                      <Star className="size-4" />
+                      <AlertTitle>Impacto</AlertTitle>
+                      <AlertDescription>{story.impact}</AlertDescription>
+                    </Alert>
+                  </CardContent>
+                  <CardFooter>
+                    <blockquote className="border-l-2 border-primary pl-4 italic">
+                      "{story.testimonial}"
+                    </blockquote>
+                  </CardFooter>
+                </Card>
+              ))}
             </CardContent>
+            <CardFooter>
+              <Button className="w-full">
+                <Handshake className="mr-2 size-4" />
+                Torne-se um Parceiro
+              </Button>
+            </CardFooter>
           </Card>
         </TabsContent>
 
         <TabsContent value="specialists">
           <Card>
             <CardHeader>
-              <CardTitle className="flex items-center text-primary">
+              <CardTitle className="flex items-center text-accent">
                 <Users className="mr-2 size-6" />
                 Conecte-se com Especialistas em TEA
               </CardTitle>
@@ -226,7 +196,7 @@ export default function BusinessSolutions() {
                 {specialists.map((specialist, index) => (
                   <Card
                     key={index}
-                    className="transition-all hover:scale-105 hover:border-primary"
+                    className="transition-transform duration-300 ease-in-out hover:scale-105 hover:border-primary"
                   >
                     <CardHeader>
                       <div className="flex items-center space-x-4">
