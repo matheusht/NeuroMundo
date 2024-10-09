@@ -74,10 +74,8 @@ export default function ScholarSolutions() {
     setRemainingTime(isBreak ? breakLength * 60 : pomodoroLength * 60)
   }
 
-  const resetTimer = () => {
+  const stopTimer = () => {
     setIsTimerActive(false)
-    setRemainingTime(pomodoroLength * 60)
-    setIsBreak(false)
   }
 
   const formatTime = (seconds: number) => {
@@ -111,7 +109,7 @@ export default function ScholarSolutions() {
         <TabsContent value="pomodoro">
           <Card>
             <CardHeader>
-              <CardTitle>Técnica Pomodoro</CardTitle>
+              <CardTitle className="text-primary">Técnica Pomodoro</CardTitle>
               <CardDescription>
                 Use esta técnica para melhorar seu foco e produtividade
               </CardDescription>
@@ -126,8 +124,8 @@ export default function ScholarSolutions() {
                   <Button onClick={startTimer} disabled={isTimerActive}>
                     {isTimerActive ? "Em andamento" : "Iniciar"}
                   </Button>
-                  <Button onClick={resetTimer} variant="outline">
-                    Reiniciar
+                  <Button onClick={stopTimer} variant="outline" className="">
+                    Parar
                   </Button>
                 </div>
                 <div className="w-full max-w-xs space-y-2">

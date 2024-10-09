@@ -42,8 +42,8 @@ export default function Component() {
 
   const accessibilityStats = [
     {
-      label: "Indivíduos com TDAH ou Autismo no mundo",
-      percentage: 15,
+      label: "Indivíduos com Autismo no mundo",
+      percentage: 1,
       color: "#60A5FA",
     },
     { label: "Sites totalmente acessíveis", percentage: 2, color: "#34D399" },
@@ -332,13 +332,12 @@ export default function Component() {
           <div className="absolute inset-0 bg-[url('/assets/daily-life-background.jpg')] bg-cover bg-center opacity-10"></div>
           <div className="container relative px-4 md:px-6">
             <h2 className="mb-8 text-3xl font-bold tracking-tighter text-secondary sm:text-6xl md:text-6xl">
-              <span className="text-secondary">TDAH</span> e Autismo na Vida
-              Diária
+              Autismo na Vida Diária
             </h2>
             <p className="mb-8 text-xl text-muted-foreground md:text-2xl">
-              Experimente um dia na vida de indivíduos com TDAH e Autismo.
-              Explore os desafios únicos e os pontos fortes que vêm com a
-              neurodiversidade em situações cotidianas.
+              Experimente um dia na vida de indivíduos com Autismo. Explore os
+              desafios únicos e os pontos fortes que vêm com a neurodiversidade
+              em situações cotidianas.
             </p>
             <Accordion type="single" collapsible className="w-full">
               {dailyLifeSchedule.map((timeBlock, index) => (
@@ -389,7 +388,7 @@ export default function Component() {
         >
           <div className="container px-4 md:px-6">
             <h2 className="mb-8 text-3xl font-bold tracking-tighter text-primary sm:text-6xl md:text-6xl">
-              Acessibilidade para TDAH e Autismo
+              Acessibilidade para Autismo
             </h2>
 
             <div className="mb-12 grid gap-8 sm:grid-cols-2 md:grid-cols-3">
@@ -463,7 +462,7 @@ export default function Component() {
             </h2>
             <p className="mb-8 text-xl text-muted-foreground md:text-2xl">
               Ajuste os controles deslizantes abaixo para simular diferentes
-              experiências sensoriais que indivíduos com TDAH ou Autismo podem
+              experiências sensoriais que indivíduos com Autismo podem
               enfrentar. Esta ferramenta interativa visa promover compreensão e
               empatia.
             </p>
