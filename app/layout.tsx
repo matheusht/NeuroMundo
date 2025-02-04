@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-head-element */
 import "@/styles/globals.css"
 import { Metadata, type Viewport } from "next"
 
@@ -9,11 +10,24 @@ import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
+  openGraph: {
+    title: {
+      default: siteConfig.name,
+      template: `%s - ${siteConfig.name}`,
+    },
+    description: siteConfig.description,
+    type: "website",
+    url: "/",
+    siteName: "Neuro Mundo",
+    images: [
+      {
+        url: "../assets/social.png",
+        width: 1460,
+        height: 625,
+        alt: "Neuro Mundo",
+      },
+    ],
   },
-  description: siteConfig.description,
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
@@ -22,6 +36,9 @@ export const metadata: Metadata = {
     icon: "/brain.ico",
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
+  },
+  alternates: {
+    canonical: "/",
   },
 }
 
